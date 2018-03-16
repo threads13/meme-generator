@@ -1,0 +1,17 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+input {
+  margin: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  font-size: 15px;
+}
+
+.generator {
+  margin-left: 15px;
+}
