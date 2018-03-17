@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Image from './components/image';
-import Captions from './components/captions';
-import './App.css';
+import Image from './image';
+import Captions from './captions';
+// import './App.css';
 import './generated_meme.css';
 
 class GeneratedMeme extends Component {
