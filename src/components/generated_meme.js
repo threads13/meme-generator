@@ -4,17 +4,26 @@ import Captions from './captions';
 // import './App.css';
 import './generated_meme.css';
 
-class GeneratedMeme extends Component {
-  render() {
+// i am going to skip on the whole react router thing for now
+// and instead build it all singe page, and do some animation
+// to push the meme to the top of the page and resed state, and clear inputs
+
+const GeneratedMeme = (props) =>  {
+  const { topLine, bottomLine, imageURL} = props;
+
     return (
       <div className="app">
         <div>
-          <Captions />
+          <Captions
+            topLine={topLine}
+            bottomLine={bottomLine}
+          />
         </div>
-        <Image />
+        <Image imageURL={imageURL}/>
+
       </div>
     );
-  }
+
 }
 
 export default GeneratedMeme;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import GeneratedMeme from './generated_meme';
 
 class Generator extends Component {
@@ -12,24 +11,7 @@ class Generator extends Component {
       imageURL: ''
     });
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  onTopLineChange(input){
-    this.setState({
-      topLine: input
-    });
-  }
-
-  onBottomLineChange(input){
-    this.setState({
-      bottomLine: input
-    });
-  }
-
-  onUrlChange(input){
-    this.setState({
-      imageURL: input
-    });
+    this.handleChange = this.handleChange.bind(this);
   }
 
   // onSubmit
@@ -40,11 +22,17 @@ class Generator extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    <GeneratedMeme
-      topLine={this.state.topLine}
-      bottomLine={this.state.bottomLine}
-      inageURL={this.state.imageURL}
-    />
+    this.props.onSave([...this.state]);
+    this.setState({
+      topLine: '',
+      bottomLine: '',
+      imageURL: ''
+    });
+  }
+
+  handleChange(e){
+    e.preventDefault();
+    this.setState({[e.target.name]: e.target.value});
   }
 
   render(){
@@ -60,33 +48,33 @@ class Generator extends Component {
             name="topLine"
             placeholder="Top Line"
             value={this.state.topLine}
-            onChange={event => this.onTopLineChange(event.target.value)}
+            onChange={this.handleChange}
           />
           <input
             type="text"
             name="bottomLine"
             placeholder="Bottom Line"
             value={this.state.bottomLine}
-            onChange={event => this.onBottomLineChange(event.target.value)}
+            onChange={this.handleChange}
           />
           <input
             type="text"
-            name="image"
+            name="imageURL"
             placeholder="Image URL"
             value={this.state.imageURL}
-            onChange={event => this.onUrlChange(event.target.value)}
+            onChange={this.handleChange}
           />
           <button>Create Meme!!!</button>
           {/* could i try to just make the button actually a link components
           from react router, and style it like a button? */}
-          <Link
+          {/* <div
             to="/generated_meme"
             topLine={this.state.topLine}
             bottomLine={this.state.bottomLine}
             inageURL={this.state.imageURL}
           >
             Link to memu
-          </Link>
+          </div> */}
         </form>
       </div>
     );

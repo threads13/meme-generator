@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Image = () => {
+const Image = (props) => {
+  const { imageURL } = props;
   return (
     <div className="image">
-      <img src="https://imgflip.com/s/meme/One-Does-Not-Simply.jpg" />
+      <img src={imageURL} />
     </div>
   );
 }

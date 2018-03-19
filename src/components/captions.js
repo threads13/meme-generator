@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Captions = () => {
+const Captions = (props) => {
+  const { topLine, bottomLine } = props;
   return (
     <div className="captions">
-      <p className="top-caption">Top Caption Component</p>
-      <p className="bottom-caption">Bottom Caption Component</p>
+      <p className="top-caption">{topLine}</p>
+      <p className="bottom-caption">{bottomLine}</p>
     </div>
   );
 }
