@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Image = (props) => {
-  const { imageURL } = props;
+  const { imageDisplay } = props;
   return (
     <div className="image">
-      <img src={imageURL} />
+      <img src={imageDisplay} />
     </div>
   );
 }

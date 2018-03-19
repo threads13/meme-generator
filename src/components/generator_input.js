@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import GeneratedMeme from './generated_meme';
 
-class Generator extends Component {
+class GeneratorInput extends Component {
   constructor(props){
     super(props);
 
+    const { topLineInput } = this.props;
+
     this.state = ({
-      topLine: '',
-      bottomLine: '',
-      imageURL: ''
+      topLineInput: '',
+      bottomLineInput: '',
+      imageURLInput: ''
     });
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -20,15 +22,34 @@ class Generator extends Component {
   // bottomLine={this.state.bottomLine}
   // imapeURL={this.state.imageURL}
 
+  // it may be as simle as i need some state for both the form and the sdisplay
+
+  // still wonder if i should just handle state in the app components
+  // and then pass down the input as props where the image and Captions
+  // can then be rendered
+
   handleSubmit(e){
     e.preventDefault();
-    this.props.onSave([...this.state]);
+    const { topLineInput, bottomLineInput, imageInput, topLineDisplay, bottomLineDiplay, imageDisplay } = this.state;
+
+    this.props.onSave([
+      topLineInput,
+      bottomLineInput,
+      imageInput
+    ]);
+
     this.setState({
-      topLine: '',
-      bottomLine: '',
-      imageURL: ''
+      topLineInput: '',
+      bottomLIiput: '',
+      imageInput: ''
     });
   }
+
+  //let's try 3 diffrent functions one for each handle method
+  // just to rule out that something
+  //is wrong
+
+  // maybe something is wrong with havind 2 things of state?
 
   handleChange(e){
     e.preventDefault();
@@ -36,6 +57,8 @@ class Generator extends Component {
   }
 
   render(){
+    const { topLineInput, bottomLineInput, imageInput } = this.state;
+
     return (
       <div className="generator">
         <h3>Generate Your Own Meme!!!</h3>
@@ -45,23 +68,23 @@ class Generator extends Component {
           >
           <input
             type="text"
-            name="topLine"
+            name="topLineInput"
             placeholder="Top Line"
-            value={this.state.topLine}
+            value={topLineInput}
             onChange={this.handleChange}
           />
           <input
             type="text"
-            name="bottomLine"
+            name="bottomLineInput"
             placeholder="Bottom Line"
-            value={this.state.bottomLine}
+            value={bottomLineInput}
             onChange={this.handleChange}
           />
           <input
             type="text"
-            name="imageURL"
+            name="imageUrlInput"
             placeholder="Image URL"
-            value={this.state.imageURL}
+            value={imageInput}
             onChange={this.handleChange}
           />
           <button>Create Meme!!!</button>
@@ -81,4 +104,4 @@ class Generator extends Component {
   }
 }
 
-export default Generator;
+export default GeneratorInput;

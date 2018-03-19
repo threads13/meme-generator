@@ -1,40 +1,95 @@
 import React, { Component } from 'react';
-import Generator from './components/generator';
+
 import GeneratedMeme from './components/generated_meme';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = ({
-
-        topLine: 'Age is just a number',
-        bottomLine: 'False: Age is a word',
-        imageURL: 'https://pbs.twimg.com/profile_images/1863312401/Dwight.jpg'
-
+      topLineDisplay: 'Age is just a number',
+      bottomLineDiplay: 'False: Age is a word',
+      imageDisplay: 'https://pbs.twimg.com/profile_images/1863312401/Dwight.jpg',
+      topLineInput: '',
+      bottomLineInput: '',
+      imageInput: ''
     });
-    this.handleSave = this.handleSave.bind(this);
+    // this.handleSave = this.handleSave.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSave(topLine, bottomLine, imageURL){
+  // handleSave(topLineReceivedInput, bottomLineReceivedInput, imageReceivedInput) {
+  //   this.setState({
+  //     topLineDisplay: topLineReceivedInput,
+  //     bottomLineDisplay: bottomLineReceivedInput,
+  //     imageDisplay: imageReceivedInput
+  //   });
+  // }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
     this.setState({
-      topLine,
-      bottomLine,
-      imageURL
+      topLineDisplay: this.state.topLineInput,
+      bottomLineDisplay: this.state.bottomLineReceivedInput,
+      imageDisplay: this.state.imageReceivedInput,
+      topLineInput: '',
+      bottomLine: '',
+      imageInput: ''
     });
+  }
+
+
+  handleChange(e){
+    e.preventDefault();
+    this.setState({[e.target.name]: e.target.value});
   }
 
   render(){
-    const { topLine, bottomLine, imageURL } = this.state;
+    const { topLineDisplay, bottomLineDiplay, imageDisplay } = this.state;
+    const { topLineInput, bottomLineInput, imageInput } = this.state;
+
     return(
-      <div>
-        <GeneratedMeme
-          topLine={topLine}
-          bottomLine={bottomLine}
-          imageURL={imageURL}
-        />
-        <Generator onSave={this.handleSave}/>
-        {/* put generated meme component in */}
+      <div className="app">
+        <div className="generator">
+          <h3>Generate Your Own Meme!!!</h3>
+          <form
+            onSubmit={this.handleSubmit}
+            className="form-group"
+            >
+            <input
+              type="text"
+              name="topLineInput"
+              placeholder="Top Line"
+              value={topLineInput}
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              name="bottomLineInput"
+              placeholder="Bottom Line"
+              value={bottomLineInput}
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              name="imageInput"
+              placeholder="Image URL"
+              value={imageInput}
+              onChange={this.handleChange}
+            />
+            <button>Create Meme!!!</button>
+          </form>
+        </div>
+        <div>
+          <GeneratedMeme
+            topLineDisplay={topLineDisplay}
+            bottomLineDisplay={bottomLineDiplay}
+            imageDisplay={imageDisplay}
+          />
+        </div>
       </div>
+
     );
   }
 }

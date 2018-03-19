@@ -9,17 +9,17 @@ import './generated_meme.css';
 // to push the meme to the top of the page and resed state, and clear inputs
 
 const GeneratedMeme = (props) =>  {
-  const { topLine, bottomLine, imageURL} = props;
+  const { topLineDisplay, bottomLineDisplay, imageDisplay} = props;
 
     return (
       <div className="app">
         <div>
           <Captions
-            topLine={topLine}
-            bottomLine={bottomLine}
+            topLineDisplay={topLineDisplay}
+            bottomLineDisplay={bottomLineDisplay}
           />
         </div>
-        <Image imageURL={imageURL}/>
+        <Image imageDisplay={imageDisplay}/>
 
       </div>
     );
