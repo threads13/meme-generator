@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import GeneratedMeme from './components/generated_meme';
+import './App.css';
 
 class App extends Component {
   constructor(props){
