@@ -13,18 +13,9 @@ class App extends Component {
       bottomLineInput: '',
       imageInput: ''
     });
-    // this.handleSave = this.handleSave.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
-  // handleSave(topLineReceivedInput, bottomLineReceivedInput, imageReceivedInput) {
-  //   this.setState({
-  //     topLineDisplay: topLineReceivedInput,
-  //     bottomLineDisplay: bottomLineReceivedInput,
-  //     imageDisplay: imageReceivedInput
-  //   });
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -39,7 +30,6 @@ class App extends Component {
     });
   }
 
-
   handleChange(e){
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value});
@@ -50,7 +40,7 @@ class App extends Component {
     const { topLineInput, bottomLineInput, imageInput } = this.state;
 
     return(
-      <div className="app">
+      <div className="app" style={{marginTop: '30px'}}>
         <div className="generator">
           <h3>Generate Your Own Meme!!!</h3>
           <form

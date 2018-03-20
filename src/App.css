@@ -1,7 +1,20 @@
 .app, .captions {
   display: flex;
+  justify-content: flex-start;
   height: 400px;
   width: 600px;
+
+}
+
+.generator {
+  display: flex;
+  flex-direction: column;
+}
+
+.generator input {
+  color: red;
+  width: 400px;
+  margin-left: 0;
 }
 
 .image {
@@ -9,7 +22,7 @@
   position: relative;
   flex-grow: 1;
   justify-content: center;
-  align-content: center;
+
 }
 
 .captions {
@@ -20,7 +33,7 @@
   align-items: center;
   height: 400px;
   width: 600px;
-  font-size: 30px;
+  font-size: 35px;
   color: white;
   text-transform: uppercase;
 }
@@ -31,7 +44,16 @@
 }
 
 .bottom-caption {
-  margin-bottom: 0;
+  margin-bottom: 30px;
+  margin-top: 20px;
   display: flex;
   justify-content: flex-end;
+}
+
+button {
+  margin-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 150px;
+  text-transform: uppercase;
 }

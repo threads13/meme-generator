@@ -16,6 +16,15 @@ class GeneratorInput extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // handleSave(topLineReceivedInput, bottomLineReceivedInput, imageReceivedInput) {
+  //   this.setState({
+  //     topLineDisplay: topLineReceivedInput,
+  //     bottomLineDisplay: bottomLineReceivedInput,
+  //     imageDisplay: imageReceivedInput
+  //   });
+  // }
+
+
   // onSubmit
   // can pass in the props on onSubmit
   // topLine={this.state.topLine}
