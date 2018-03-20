@@ -7,7 +7,7 @@ class App extends Component {
     super(props);
     this.state = ({
       topLineDisplay: 'Age is just a number',
-      bottomLineDiplay: 'False: Age is a word',
+      bottomLineDisplay: 'False: Age is a word',
       imageDisplay: 'https://pbs.twimg.com/profile_images/1863312401/Dwight.jpg',
       topLineInput: '',
       bottomLineInput: '',
@@ -31,10 +31,10 @@ class App extends Component {
 
     this.setState({
       topLineDisplay: this.state.topLineInput,
-      bottomLineDisplay: this.state.bottomLineReceivedInput,
-      imageDisplay: this.state.imageReceivedInput,
+      bottomLineDisplay: this.state.bottomLineInput,
+      imageDisplay: this.state.imageInput,
       topLineInput: '',
-      bottomLine: '',
+      bottomLineInput: '',
       imageInput: ''
     });
   }
@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   render(){
-    const { topLineDisplay, bottomLineDiplay, imageDisplay } = this.state;
+    const { topLineDisplay, bottomLineDisplay, imageDisplay } = this.state;
     const { topLineInput, bottomLineInput, imageInput } = this.state;
 
     return(
@@ -84,7 +84,7 @@ class App extends Component {
         <div>
           <GeneratedMeme
             topLineDisplay={topLineDisplay}
-            bottomLineDisplay={bottomLineDiplay}
+            bottomLineDisplay={bottomLineDisplay}
             imageDisplay={imageDisplay}
           />
         </div>
