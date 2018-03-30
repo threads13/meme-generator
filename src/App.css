@@ -1,18 +1,38 @@
-.app, .captions {
-  display: flex;
-  justify-content: flex-start;
-  height: 400px;
-  width: 600px;
-
+.app {
+    display: flex;
+    border: 2px solid red;
+    flex-direction: row-reverse;
+    justify-content: space-around;
 }
+
+.app, .captions {
+
+
+  /* height: 400px;
+  width: 600px;
+  max-height: 400px;
+  max-width: 600px; */
+}
+
+.generated-meme {
+  display: flex;
+
+  justify-content: flex-end;
+  border: 2px solid purple;
+  /* height: 400px;
+  width: 600px;
+  max-height: 400px;
+  max-width: 600px; */
+}
+
 
 .generator {
   display: flex;
   flex-direction: column;
+
 }
 
 .generator input {
-  color: red;
   width: 400px;
   margin-left: 0;
 }
@@ -22,7 +42,7 @@
   position: relative;
   flex-grow: 1;
   justify-content: center;
-
+  margin-right: 0;
 }
 
 .captions {
@@ -30,24 +50,31 @@
   position: absolute;
   z-index: 100;
   flex-direction: column;
-  align-items: center;
-  height: 400px;
-  width: 600px;
-  font-size: 35px;
+  justify-content: center;
+
+  /* align-items: center; */
+  /* height: 400px;
+  width: 600px; */
+  font-size: 15px;
   color: white;
   text-transform: uppercase;
 }
 
 .top-caption {
-  margin-top: 10px;
-  padding-bottom: 250px;
+  margin: 0;
+  padding: 0;
+  /* margin-top: 10px; */
+  /* padding-bottom: 260px; */
 }
 
 .bottom-caption {
-  margin-bottom: 30px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  /* margin-bottom: 30px;
+  margin-top: 0px;
+  display: flex; */
+
+  color: red;
 }
 
 button {

@@ -12,7 +12,7 @@ const GeneratedMeme = (props) =>  {
   const { topLineDisplay, bottomLineDisplay, imageDisplay} = props;
 
     return (
-      <div className="app">
+      <div className="generated-meme">
         <div>
           <Captions
             topLineDisplay={topLineDisplay}
